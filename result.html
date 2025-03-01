@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #330425, #2d1374);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .result-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            color: #ff5733;
+        }
+
+        .number {
+            font-size: 24px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .attempts {
+            font-size: 18px;
+            color: #2980b9;
+            font-weight: bold;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .play-again {
+            background: #27ae60;
+            color: white;
+        }
+
+        .play-again:hover {
+            background: #219150;
+        }
+
+        .logout {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .logout:hover {
+            background: #c0392b;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-box">
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p>You guessed the correct number: <b class="number">{{ number }}</b></p>
+            <p>Total attempts: <span class="attempts">{{ attempts }}</span></p>
+            <div class="buttons">
+                <a href="{{ url_for('game') }}" class="btn play-again">Play Again</a>
+                <a href="{{ url_for('logout') }}" class="btn logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
